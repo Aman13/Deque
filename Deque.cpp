@@ -124,7 +124,7 @@ void Deque::deepCopy(const Deque & source)	{
 	}
 	else	{
 		Node* temp = source.front;
-		while(temp->next != NULL)	{
+		while(temp != NULL)	{
 			this->insert_back(temp->data);
 			temp = temp->next;
 		}
