@@ -1,5 +1,6 @@
 
 #include <iostream>
+#include <stdexcept>
 
 class Deque	{
 

@@ -27,13 +27,23 @@ void Deque::insert_back(int value)	{
 }
 
 int Deque::remove_front()	{
+	if(this->front == NULL && this->back == NULL)	{
+		throw std::runtime_error("deque is empty");
+	}
 	Node* temp = this->front;
 	this->front = front->next;
 	return temp->data;
 }
 
 int Deque::remove_back()	{
+	if(this->front == NULL && this->back == NULL)	{
+		throw std::runtime_error("deque is empty");
+	}
 	Node* temp = this->front;
+	if(this->front == this->back)	{
+		this->front = this->back = NULL;
+		return temp->data;
+	}
 	while(temp->next != this->back)	{
 		temp = temp->next;
 	}
@@ -44,10 +54,16 @@ int Deque::remove_back()	{
 }
 
 int Deque::peek_front()	const{
+	if(this->front == NULL && this->back == NULL)	{
+		throw std::runtime_error("deque is empty");
+	}
 	return front->data;
 }
 
 int Deque::peek_back()	const{
+	if(this->front == NULL && this->back == NULL)	{
+		throw std::runtime_error("deque is empty");
+	}
 	return back->data;
 }
 
