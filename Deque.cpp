@@ -5,7 +5,7 @@ Deque::Deque()	{
 	front = back = NULL;
 }
 
-/*Deque::~Deque(void)	{
+Deque::~Deque(void)	{
 	deleteDeque();
 }
 
@@ -20,7 +20,7 @@ Deque & Deque::operator= (const Deque & source)	{
 	}
 	return *this;
 }
-*/
+
 void Deque::insert_front(int value)	{
 	if(this->front == NULL && this->back == NULL)	{
 		 this->front = this->back = new Node(value, this->front);
@@ -119,16 +119,13 @@ void Deque::deleteDeque()	{
 
 void Deque::deepCopy(const Deque & source)	{
 	if(source.front == NULL)	{
-		this->front == NULL;
-		this->back == NULL;
+		this->front = NULL;
+		this->back = NULL;
 	}
-	else(source.front != NULL)
-	{
+	else	{
 		Node* temp = source.front;
-		this->front = new Node(temp->data, NULL);
-		this->back = this->front;
-		while(temp->next != null)	{
-			this->front.insert_back(temp->data);
+		while(temp->next != NULL)	{
+			this->insert_back(temp->data);
 			temp = temp->next;
 		}
 	}

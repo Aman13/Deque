@@ -8,11 +8,11 @@ public:
 
 	Deque (void);
 
-	//Deque(const Deque & source);
+	Deque(const Deque & source);
 
-	//~Deque(void);
+	~Deque(void);
 
-	//Deque & operator= (const Deque & source);
+	Deque & operator= (const Deque & source);
 
 	void insert_front(int value);
 
@@ -43,6 +43,6 @@ private:
 
 	Node* front;
 	Node* back;
-	//void deepCopy(const Deque & ls);
-	//void deleteDeque();
+	void deepCopy(const Deque & ls);
+	void deleteDeque();
 };
