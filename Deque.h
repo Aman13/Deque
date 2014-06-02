@@ -10,6 +10,10 @@ public:
 
 	//Deque(const Deque & source);
 
+	//~Deque(void);
+
+	//Deque & operator= (const Deque & source);
+
 	void insert_front(int value);
 
 	void insert_back(int value);
@@ -26,8 +30,6 @@ public:
 
 	int size()	const;
 
-
-
 private:
 
 	class Node	{
@@ -41,6 +43,6 @@ private:
 
 	Node* front;
 	Node* back;
-
-
+	//void deepCopy(const Deque & ls);
+	//void deleteDeque();
 };
