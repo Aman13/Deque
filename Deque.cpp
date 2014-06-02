@@ -118,20 +118,17 @@ void Deque::deleteDeque()	{
 }
 
 void Deque::deepCopy(const Deque & source)	{
-	if(source.front == NULL & source.back == NULL)	{
+	if(source.front == NULL)	{
 		this->front == NULL;
 		this->back == NULL;
 	}
-	if(source.front != NULL)
+	else(source.front != NULL)
 	{
 		Node* temp = source.front;
-		this->front = new Node(temp->data, temp->next);
-		temp = temp->next;
-		if(temp == NULL)	{
-			this->back = this->front;
-		}
-		while(temp->next !=NULL)	{
-			this->back = new Node(temp->data, temp->next);
+		this->front = new Node(temp->data, NULL);
+		this->back = this->front;
+		while(temp->next != null)	{
+			this->front.insert_back(temp->data);
 			temp = temp->next;
 		}
 	}
