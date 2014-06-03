@@ -1,3 +1,67 @@
+
+#include <iostream>
+#include <stdexcept>
+
+#ifndef Deque_H
+#define Deque_H
+
+template <class T>
+class Deque	{
+
+public:
+
+	Deque ();
+
+	Deque(const Deque & source);
+
+	~Deque(void);
+
+	Deque & operator= (const Deque & source);
+
+	void insert_front(T value);
+
+	void insert_back(T value);
+
+	T remove_front();
+
+	T remove_back();
+
+	T peek_front()	const;
+
+	T peek_back()	const;
+
+	bool empty()	const;
+
+	int size()	const;
+
+private:
+
+	class Node	{
+	public:
+		int data;
+		Node* next;
+
+		Node(int value): data(value), next(NULL) {};
+		Node(int value, Node* nd): data(value), next(nd) {};
+	};
+
+	Node* front;
+	Node* back;
+	void deepCopy(const Deque & ls);
+	void deleteDeque();
+	void gaurd()	const;
+};
+
+#include "Deque.cpp"
+
+#endif
+
+//////////////////////////////////////////////////
+//////////////////////////////////////////////////
+
+/*
+
+
 #include <iostream>
 #include <stdexcept>
 
@@ -176,7 +240,7 @@ private:
 			delete temp;
 		}
 	}
-	
+
 	//Deletes the deque.
 	//Runs through deque from front to back
 	// deleting the nodes until front = NULL
@@ -190,3 +254,5 @@ private:
 		this->front = this->back = NULL;
 	}
 };
+
+*/
