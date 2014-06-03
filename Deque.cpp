@@ -1,4 +1,4 @@
-/*#ifndef _DEQUE_H_
+#ifndef _DEQUE_H_
 #include <stdexcept>
 //#include "Deque.h"
 
@@ -144,4 +144,3 @@ void Deque<T>::deepCopy(const Deque & source)	{
 		}
 	}
 }
-*/

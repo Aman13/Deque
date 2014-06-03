@@ -176,9 +176,10 @@ private:
 			delete temp;
 		}
 	}
+	
 	//Deletes the deque.
-	//Runs through deque, deleting the nodes until
-	//both front and back = NULL.
+	//Runs through deque from front to back
+	// deleting the nodes until front = NULL
 	void deleteDeque()	{
 		Node* temp = this->front;
 		while(temp != NULL)	{
