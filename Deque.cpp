@@ -1,19 +1,24 @@
+/*#ifndef _DEQUE_H_
+#include <stdexcept>
+//#include "Deque.h"
 
-#include "Deque.h"
-
-Deque::Deque()	{
+template <class T>
+Deque<T>::Deque()	{
 	front = back = NULL;
 }
 
-Deque::~Deque(void)	{
+template <class T>
+Deque<T>::~Deque()	{
 	deleteDeque();
 }
 
-Deque::Deque(const Deque & source)	{
+template <class T>
+Deque<T>::Deque(const Deque & source)	{
 	deepCopy(source);
 }
 
-Deque & Deque::operator= (const Deque & source)	{
+template <class T>
+Deque<T> & Deque<T>::operator= (const Deque & source)	{
 	if(this != &source)	{
 		deleteDeque();
 		deepCopy(source);
@@ -21,7 +26,8 @@ Deque & Deque::operator= (const Deque & source)	{
 	return *this;
 }
 
-void Deque::insert_front(int value)	{
+template <class T>
+void Deque<T>::insert_front(T value)	{
 	if(this->front == NULL && this->back == NULL)	{
 		 this->front = this->back = new Node(value, this->front);
 	}
@@ -31,7 +37,8 @@ void Deque::insert_front(int value)	{
 	}
 }
 
-void Deque::insert_back(int value)	{
+template <class T>
+void Deque<T>::insert_back(T value)	{
 	if(this->front == NULL && this->back == NULL)	{
 		this->front = this->back = new Node(value, this->back);
 	}
@@ -42,25 +49,27 @@ void Deque::insert_back(int value)	{
 	}
 }
 
-int Deque::remove_front()	{
+template <class T>
+T Deque<T>::remove_front()	{
 	if(this->front == NULL && this->back == NULL)	{
 		throw std::runtime_error("deque is empty");
 	}
 	Node* temp = this->front;
 	this->front = front->next;
-	int storage  = temp->data;
+	T storage  = temp->data;
 	delete temp;
 	return storage;
 }
 
-int Deque::remove_back()	{
+template <class T>
+T Deque<T>::remove_back()	{
 	if(this->front == NULL && this->back == NULL)	{
 		throw std::runtime_error("deque is empty");
 	}
 	Node* temp = this->front;
 	if(this->front == this->back)	{
 		this->front = this->back = NULL;
-		int storage = temp->data;
+		T storage = temp->data;
 		delete temp;
 		return storage;
 	}
@@ -70,33 +79,37 @@ int Deque::remove_back()	{
 	this->back = temp;
 	temp = temp->next;
 	back->next = NULL;
-	int storage = temp->data;
+	T storage = temp->data;
 	delete temp;
 	return storage;
 }
 
-int Deque::peek_front()	const{
+template <class T>
+T Deque<T>::peek_front()	const{
 	if(this->front == NULL && this->back == NULL)	{
 		throw std::runtime_error("deque is empty");
 	}
 	return front->data;
 }
 
-int Deque::peek_back()	const{
+template <class T>
+T Deque<T>::peek_back()	const{
 	if(this->front == NULL && this->back == NULL)	{
 		throw std::runtime_error("deque is empty");
 	}
 	return back->data;
 }
 
-bool Deque::empty()	const{
+template <class T>
+bool Deque<T>::empty()	const{
 	if(this->front == NULL && this->back == NULL)	{
 		return true;
 	}
 	return false;
 }
 
-int Deque::size()	const{
+template <class T>
+int Deque<T>::size()	const{
 	int counter = 0;
 	Node* temp = this->front;
 	while(temp != NULL)	{
@@ -104,10 +117,10 @@ int Deque::size()	const{
 		temp = temp->next;
 	}
 	return counter;
-
 }
 
-void Deque::deleteDeque()	{
+template <class T>
+void Deque<T>::deleteDeque()	{
 	Node* temp = this->front;
 	while(temp != NULL)	{
 		temp = front->next;
@@ -117,7 +130,8 @@ void Deque::deleteDeque()	{
 	this->front = this->back = NULL;
 }
 
-void Deque::deepCopy(const Deque & source)	{
+template <class T>
+void Deque<T>::deepCopy(const Deque & source)	{
 	if(source.front == NULL)	{
 		this->front = NULL;
 		this->back = NULL;
@@ -130,3 +144,4 @@ void Deque::deepCopy(const Deque & source)	{
 		}
 	}
 }
+*/
