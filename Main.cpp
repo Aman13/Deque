@@ -3,9 +3,9 @@
 
 #include "Deque.h"
 #define assert(x, msg) if (!(x)) throw msg;
-/*
+
 void test_size()	{
-	Deque test;
+	Deque<int> test;
 	test.insert_front(1);
 	test.insert_front(2);
 	test.insert_back(3);
@@ -13,7 +13,7 @@ void test_size()	{
 }
 
 void test_peek()	{
-	Deque test;
+	Deque<int> test;
 	test.insert_front(1);
 	test.insert_back(3);
 	test.insert_back(9);
@@ -24,7 +24,7 @@ void test_peek()	{
 }
 
 void test_remove()	{
-	Deque test;
+	Deque<int> test;
 	test.insert_front(3);
 	test.insert_front(9);
 	test.insert_back(4);
@@ -35,13 +35,13 @@ void test_remove()	{
 	assert(test.peek_back() == 4, "Back should be 4");
 }
 void test_empty()	{
-	Deque test;
+	Deque<int> test;
 	assert(test.empty() == true, "Deque should be empty");
 }
 
 void test_copy()	{
-	Deque test;
-	Deque copy;
+	Deque<int> test;
+	Deque<int> copy;
 	test.insert_front(1);
 	test.insert_front(2);
 	test.insert_front(3);
@@ -51,6 +51,20 @@ void test_copy()	{
 	assert(copy.size() == 3, "size should be 3");
 }
 
+void test_gaurd()	{
+	Deque<int> test;
+	//test.remove_front();
+	//test.remove_back();
+	//test.peek_front();
+	//test.peek_back();
+}
+
+void test_char()	{
+	Deque<char> test;
+	test.insert_front('a');
+	test.insert_back('b');
+	assert(test.peek_front() == 'a', "Front should contain: a");
+}
 int main()	{
 
 	try	{
@@ -59,13 +73,16 @@ int main()	{
 		test_remove();
 		test_empty();
 		test_copy();
+		test_gaurd();
+		test_char();
 	}
 	catch(const char* msg) {
 		std::cout << "error: " << msg << std::endl;
 		return 1;
 	}
 	return 0;
-}*/
+}
+/*
 int main()	{
 	Deque<int> dq1;
     std::cout << dq1.empty() << " - 1" << std::endl;
@@ -92,3 +109,4 @@ int main()	{
  
     return 0;
 }
+*/
